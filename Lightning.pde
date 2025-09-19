@@ -13,7 +13,8 @@ void lightning(int xStart, int yStart) {
     yStart = yEnd;
   }
 }
-int i = 0;
+int i = 3;
+int speed = 3;
 void draw() {
 fill(0,0,40,30); //opacity
 rect(0,0,400,400);
@@ -21,9 +22,20 @@ rect(0,0,400,400);
 fill(100,100,100);
 rect(30,287,40,287);
 
-if(i/60.0 == i/60)
+if(i >= 60) {
   lightning(mouseX, 400);
-i++;
+  i = 0;
+}
+i += speed;
+
+if (speed > 60)
+  speed = 60;
+if (speed < 0)
+  speed = 0;
+
+text("Speed = " + speed, 250, 100);
+text("Up arrow to increase speed,", 230, 130);
+text("down to decrease speed", 230, 150);
 
 fill(100,100,100);//buildings
 noStroke();
@@ -55,4 +67,12 @@ ellipse(163,19, 80, 50);
 ellipse(227,20, 80, 60);
 ellipse(250, 10,110, 30);
 ellipse(351,11,150,70);
+
+}
+
+void keyPressed() {
+  if (keyCode == UP)
+    speed += 2;
+  if (keyCode == DOWN)
+    speed -= 2;
 }
