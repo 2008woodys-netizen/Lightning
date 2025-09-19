@@ -24,8 +24,6 @@ rect(30,287,40,287);
 if(i/60.0 == i/60)
   lightning(mouseX, 400);
 i++;
-System.out.println(mouseX);
-System.out.println(mouseY);
 
 fill(100,100,100);//buildings
 noStroke();
